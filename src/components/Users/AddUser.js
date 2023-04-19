@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import Card from "../UI/Card";
+import Wrapper from "../Helpers/Wrapper";
 
 import styles from './AddUser.module.css'
 import Button from "../UI/Button";
@@ -49,9 +50,9 @@ const errorHandler = () =>{
 }
 
     return(
-        <div>
+        <Wrapper>
             {error && (<ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>)}
-        <Card className={styles.input }>
+        <Card className={styles.input}>
                 <form onSubmit={addUserhandler}>
                     <label htmlFor="username">UserName</label>
                     <input id="usernme" type="text" value={enteredUserName} onChange={userNameChangeHandler} />
@@ -60,7 +61,7 @@ const errorHandler = () =>{
                     <Button type="submit">Add User</Button>
                 </form>
         </Card>
-        </div>
+        </Wrapper>
      
   
     )
